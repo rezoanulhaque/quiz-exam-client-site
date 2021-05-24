@@ -10,24 +10,24 @@ const Body = () => {
     const [questionBank, setQuestionBank] = useState(Data);
     const [userAnswer, setUserAnswer] = useContext(AnsContext);
     const [score, setScore] = useState(0);
-    console.log(score,'hi')
-    console.log(userAnswer)
     const [response, setResponse] = useState(0);
     const playAgain = () => {
         setScore(0);
         setResponse(0);
+        window.location.reload();
       };
       const showResult = () => {
+        setResponse(userAnswer.length);
         let count=0;
        for(var i=0; i<userAnswer.length; i++){
         if(userAnswer[i].correct===userAnswer[i].ans){
           count=count+1;
-        }
+          }
         else{
           count=count;
+          }
         }
-       }
-      setScore(count);
+       setScore(count);
       }
     return (
       <div className="container">
